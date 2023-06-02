@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
@@ -30,7 +31,9 @@ class ProdutosController extends Controller
         return redirect()->route('produtos');
     }
 
-    public function view(){
-
+    public function view(Produto $produto){
+        return view('produtos.view', [
+            'prod' => $produto,
+        ]);
     }
 }
