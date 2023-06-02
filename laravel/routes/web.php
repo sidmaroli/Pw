@@ -25,3 +25,5 @@ Route::get('/produtos/add', [ProdutosController::class, 'add'])->name('produtos.
 Route::post('/produtos/add', [ProdutosController::class, 'addSave'])->name('produtos.addSave');
 
 Route::get('/produtos/{produto}', [ProdutosController::class, 'view'])->name('produtos.view');
+
+Route::get('/produtos/edit/{produto}', [ProdutosController::class, 'edit'])->name('produtos.edit');

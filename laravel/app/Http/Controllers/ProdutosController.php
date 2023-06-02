@@ -36,4 +36,10 @@ class ProdutosController extends Controller
             'prod' => $produto,
         ]);
     }
+
+    public function edit(Produto $produto){
+        return view('protudos.add', [
+            'prod' =>$produto,
+        ]);
+    }
 }
