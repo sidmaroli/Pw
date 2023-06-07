@@ -11,13 +11,14 @@
         @endforeach
     @endif
 
-    <form action="{{ route('produtos.addSave') }}" method="post">
+    <form action="{{ url()->current() }}" method="post">
+
         @csrf
-        <input type="text" name="name" placeholder="Nome do produto" value="{{ old('name')}}">
+        <input type="text" name="name" placeholder="Nome do produto" value="{{ old('name', $prod->name ?? '') }}">
         <br>
-        <input type="number" name="price" step="0.01" placeholder="preço" min="0" value="{{ old('price')}}">
+        <input type="number" name="price" step="0.01" placeholder="preço" min="0" value="{{ old('price', $prod->price ?? '')}}">
         <br>
-        <input type="text" name="quantity" placeholder="Quantidade" min="0" value="{{ old('quantify')}}">
+        <input type="text" name="quantity" placeholder="Quantidade" min="0" value="{{ old('quantity', $prod->quantity ?? '')}}">
         <hr width="30%" align="left">
         <input type="submit" value="Gravar">
     </form>
