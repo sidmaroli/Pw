@@ -16,6 +16,7 @@
         <th>Preço</th>
         <th>Quantidade</th>
         <th>Editar</th>
+        <th>Apagar</th>
     </tr>
 
     @foreach ($prods as $prod)
@@ -24,6 +25,7 @@
         <td>R$ {{ number_format($prod->price, 2, ',', '.') }}</td>
         <td>{{ $prod->quantity }}</td>
         <td><a href="{{ route('produtos.edit', $prod->id) }}">Editar</a></td>
+        <td><a href="{{ route('produtos.delete', $prod->id) }}">Apagar</a></td>
     </tr>
     @endforeach
 
