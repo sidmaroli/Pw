@@ -13,7 +13,6 @@
         <ul>
             <li><a href="{{ route('home')}}">Home</a></li>
             <li><a href="{{ route('produtos')}}">produtos</a></li>
-            <li><a href="{{ route('produtos.add')}}">add</a></li>
         </ul>
     </div>
     @yield('content')
