@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class ProdutosController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         if ($request->isMethod('POST')) {
             $busca = $request->busca;
             // Ordenação dos resultados (asc e desc)
