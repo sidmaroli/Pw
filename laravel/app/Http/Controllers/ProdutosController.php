@@ -16,17 +16,16 @@ class ProdutosController extends Controller
 
             $prods = Produto::where('name', 'LIKE', "%{$busca}%")
                 ->orderBy('name', $ord)
-                ->get();
+                ->paginate();
         } else {
-            $prods = Produto::all();
+            $prods = Produto::paginate();
+        }
 
-        $prods = Produto::all();
         #$prods = Produto::withTrashed()->get();
         return view('produtos.index', [
             'prods' => $prods,
         ]);
     }
-}
 
     public function add(){
         return view('produtos.add');

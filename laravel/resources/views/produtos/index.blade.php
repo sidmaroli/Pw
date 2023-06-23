@@ -42,5 +42,7 @@
 
 </table>
 
+{{ $prods->links('vendor.pagination.default') }}
+
 <a href="{{ route('produtos.add') }}">Adicionar produto</a>
 @endsection
