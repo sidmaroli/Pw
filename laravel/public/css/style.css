@@ -1,11 +1,20 @@
 body{
     background-color: peru;
 }
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    text-decoration: underline;
+}
 
 .pagination{
     border: 2px dashed pink;
 }
 .pagination li{
     float: left;
+    list-style-type: none;
+    margin-right: 10px;
 
 }
