@@ -11,9 +11,19 @@
 
     <h1>Site Lindão</h1>
     <div>
+        @if (Auth::user())
+            Olá {{Auth::user()->name}}.
+            <br>
+            <a href="{{ route('logout') }}">sair</a>
+        @else
+            <a href="{{ route('login') }}">Fazer login</a>
+        @endif
+    </div>
+    <div>
         <ul>
             <li><a href="{{ route('home')}}">Home</a></li>
             <li><a href="{{ route('produtos')}}">produtos</a></li>
+            <li><a href="{{ route('usuarios')}}">Usuários</a></li>
         </ul>
     </div>
     @yield('content')

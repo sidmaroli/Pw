@@ -7,14 +7,12 @@
     <tr>
         <th>Nome</th>
         <th>Email</th>
-        <th>Senha</th>
     </tr>
 
     @foreach ($users as $user)
     <tr>
         <td>{{ $user->name }}</td>
         <td>{{ ($user->email) }}</td>
-        <td>{{ $user->password }}</td>
     </tr>
     @endforeach
 

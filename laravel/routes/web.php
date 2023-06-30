@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
+Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos')->middleware('auth');
 
 Route::post('/produtos', [ProdutosController::class, 'index']);
 
@@ -37,7 +37,15 @@ Route::get('/produtos/delete/{produto}', [ProdutosController::class, 'delete'])-
 
 Route::delete('/produtos/delete/{produto}', [ProdutosController::class, 'deleteForReal'])->name('produtos.deleteForReal');
 
-Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios');
-Route::get('/usuarios/add', [UsuarioController::class, 'add'])->name('usuarios.add');
-Route::post('/usuarios/add', [UsuarioController::class, 'addSave'])->name('produtos.addSave');
+Route::prefix('/usuarios')->group(function(){
+    Route::get('', [UsuarioController::class, 'index'])->name('usuarios');
+    Route::get('add', [UsuarioController::class, 'add'])->name('usuarios.add');
+    Route::post('add', [UsuarioController::class, 'addSave'])->name('produtos.addSave');
+});
+
+Route::get('login', [usuarioController::class, 'login'])->name('login');
+Route::post('login', [usuarioController::class, 'login'])->name('login');
+Route::get('logout', [usuarioController::class, 'logout'])->name('logout');
+
+
 
