@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\usuarioController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,9 +44,17 @@ Route::prefix('/usuarios')->group(function(){
     Route::post('add', [UsuarioController::class, 'addSave'])->name('produtos.addSave');
 });
 
-Route::get('login', [usuarioController::class, 'login'])->name('login');
 Route::post('login', [usuarioController::class, 'login'])->name('login');
 Route::get('logout', [usuarioController::class, 'logout'])->name('logout');
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect()->route('home');
+})->name('verification.verify');
 
 
 
