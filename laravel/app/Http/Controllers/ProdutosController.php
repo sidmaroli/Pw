@@ -6,7 +6,7 @@ use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class ProdutosController extends Controller
+class ProdutoController extends Controller
 {
     public function index(Request $request){
         if ($request->isMethod('POST')) {
